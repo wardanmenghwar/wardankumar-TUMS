@@ -4,23 +4,23 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
-const NavLink = ({ href, children }) => (
+const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <Link href={href} className="text-black px-3 py-2 text-sm font-medium transition-all duration-300 relative group">
     {children}
     <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-orange-500 group-hover:w-full group-hover:left-0 transition-all duration-300 ease-out"></span>
   </Link>
 );
 
-const DropdownLink = ({ href, children }) => (
+const DropdownLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <Link href={href} className="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-500 hover:text-white transition-colors">
     {children}
   </Link>
 );
 
 const Navbar = () => {
-  const [dropdown, setDropdown] = useState(null);
+  const [dropdown, setDropdown] = useState<string | null>(null);
 
-  const handleMouseEnter = (menu) => {
+  const handleMouseEnter = (menu: string) => {
     setDropdown(menu);
   };
 
